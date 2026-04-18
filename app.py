@@ -31,7 +31,7 @@ input:focus {
 </style>
 """, unsafe_allow_html=True)
 
-st.title("⭐️ Stock Sentiment Analyser")
+st.title("Stock Sentiment Analyser")
 st.caption("Powered by FinBERT — an AI model trained on financial text")
 
 api_key = st.secrets["NEWSAPI_KEY"]
@@ -66,16 +66,16 @@ if st.button("Analyse Sentiment") and ticker:
             col4.metric("Negative", neg)
 
             st.subheader(f"Latest headlines for '{ticker}'")
-            st.markdown("🟢 Positive &nbsp;&nbsp; 🟡 Neutral &nbsp;&nbsp; 🔴 Negative")
+            st.markdown("🤩 Positive &nbsp;&nbsp; 😶 Neutral &nbsp;&nbsp; 🫪 Negative")
 
             for article in articles:
                 sentiment = article["sentiment"]
                 if sentiment == "positive":
-                    colour = "🟢"
+                    colour = "🤩"
                 elif sentiment == "negative":
-                    colour = "🔴"
+                    colour = "🫪"
                 else:
-                    colour = "🟡"
+                    colour = "😶"
 
                 st.markdown(f"{colour} **[{article['headline']}]({article['url']})** — *{article['source']}* · {article['date']}")
                 st.caption(f"Sentiment: {article['sentiment']} ({article['confidence']}% confidence)")
