@@ -1,7 +1,9 @@
 import streamlit as st
 import requests
 import pandas as pd
+import altair as alt
 from transformers import pipeline
+
 
 @st.cache_resource
 def load_model():
