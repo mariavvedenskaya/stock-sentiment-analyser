@@ -3,22 +3,21 @@ import requests
 import pandas as pd
 from transformers import pipeline
 
-# Load FinBERT sentiment model
 @st.cache_resource
 def load_model():
     return pipeline("sentiment-analysis", model="ProsusAI/finbert")
 
-# Fetch news from NewsAPI
 def fetch_news(ticker, api_key):
     url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=publishedAt&pageSize=20&apiKey={api_key}"
     response = requests.get(url)
     articles = response.json().get("articles", [])
     return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10], "url": a["url"]} for a in articles if a["title"]]
 
-# Main app
 st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 st.title("⭐️ Stock Sentiment Analyser")
 st.caption("Powered by FinBERT — an AI model trained on financial text")
+
+st.markdown("🟢 Positive &nbsp;&nbsp; 🟡 Neutral &nbsp;&nbsp; 🔴 Negative")
 
 api_key = st.secrets["NEWSAPI_KEY"]
 ticker = st.text_input("Enter a company name or ticker (e.g. Apple, Tesla, NVIDIA)")
@@ -29,7 +28,7 @@ if st.button("Analyse Sentiment") and ticker:
         articles = fetch_news(ticker, api_key)
 
         if not articles:
-            st.error("No articles found. Check your API key or try a different company name.")
+            st.error("No articles found. Try a different company name.")
         else:
             headlines = [a["headline"] for a in articles]
             results = classifier(headlines, truncation=True, max_length=512)
@@ -39,7 +38,6 @@ if st.button("Analyse Sentiment") and ticker:
                 article["confidence"] = round(results[i]["score"] * 100, 1)
 
             df = pd.DataFrame(articles)
-
             counts = df["sentiment"].value_counts()
             pos = counts.get("positive", 0)
             neg = counts.get("negative", 0)
