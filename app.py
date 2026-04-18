@@ -20,10 +20,10 @@ st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 st.title("⭐️ Stock Sentiment Analyser")
 st.caption("Powered by FinBERT — an AI model trained on financial text")
 
-api_key = st.text_input("Enter your NewsAPI key", type="password")
+api_key = st.secrets["NEWSAPI_KEY"]
 ticker = st.text_input("Enter a company name or ticker (e.g. Apple, Tesla, NVIDIA)")
 
-if st.button("Analyse Sentiment") and ticker and api_key:
+if st.button("Analyse Sentiment") and ticker:
     with st.spinner("Fetching news and analysing sentiment..."):
         classifier = load_model()
         articles = fetch_news(ticker, api_key)
