@@ -4,7 +4,6 @@ import pandas as pd
 import altair as alt
 from transformers import pipeline
 
-
 @st.cache_resource
 def load_model():
     return pipeline("sentiment-analysis", model="ProsusAI/finbert")
@@ -83,9 +82,10 @@ if st.button("Analyse Sentiment") and ticker:
                 st.caption(f"Sentiment: {article['sentiment']} ({article['confidence']}% confidence)")
                 st.divider()
 
-counts_df = counts.reset_index()
-counts_df.columns = ["sentiment", "count"]
-chart = alt.Chart(counts_df).mark_bar(color="#be26ff").encode(
-    x=alt.X("sentiment", title="Sentiment"),
-    y=alt.Y("count", title="Count")
-)
+            counts_df = counts.reset_index()
+            counts_df.columns = ["sentiment", "count"]
+            chart = alt.Chart(counts_df).mark_bar(color="#be26ff").encode(
+                x=alt.X("sentiment", title="Sentiment"),
+                y=alt.Y("count", title="Count")
+            )
+            st.altair_chart(chart, use_container_width=True)
