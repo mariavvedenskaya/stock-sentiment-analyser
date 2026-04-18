@@ -12,7 +12,7 @@ def fetch_news(ticker, api_key):
     url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=relevancy&pageSize=20&excludeDomains=spinalcolumnradiology.com,pinkvilla.com,tmz.com&apiKey={api_key}"
     response = requests.get(url)
     articles = response.json().get("articles", [])
-    return [{"headline": a["title"], "source": a["source"]["name"], "date": a["relevancy"][:10], "url": a["url"]} for a in articles if a["title"]]
+    return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10], "url": a["url"]} for a in articles if a["title"]]
 
 st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 
@@ -30,7 +30,6 @@ input:focus {
     box-shadow: 0 0 0 2px #9af540 !important;
     outline: none !important;
 }
-
 [data-baseweb="input"]:focus-within {
     border-color: #9af540 !important;
     box-shadow: 0 0 0 2px #9af540 !important;
@@ -73,9 +72,8 @@ if st.button("Analyse Sentiment") and ticker:
             col4.metric("Negative", neg)
 
             st.subheader(f"Latest headlines for '{ticker}':")
-
-    dates = [a["date"] for a in articles]
-    st.caption(f"Showing articles from {min(dates)} to {max(dates)}")
+            dates = [a["date"] for a in articles]
+            st.caption(f"Showing articles from {min(dates)} to {max(dates)}")
             st.markdown("🤩 Positive  \n😶 Neutral  \n🫪 Negative")
 
             for article in articles:
