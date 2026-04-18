@@ -17,7 +17,6 @@ st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 st.title("⭐️ Stock Sentiment Analyser")
 st.caption("Powered by FinBERT — an AI model trained on financial text")
 
-st.markdown("🟢 Positive &nbsp;&nbsp; 🟡 Neutral &nbsp;&nbsp; 🔴 Negative")
 
 api_key = st.secrets["NEWSAPI_KEY"]
 ticker = st.text_input("Enter a company name or ticker (e.g. Apple, Tesla, NVIDIA)")
@@ -51,6 +50,7 @@ if st.button("Analyse Sentiment") and ticker:
             col4.metric("Negative", neg)
 
             st.subheader(f"Latest headlines for '{ticker}'")
+            st.markdown("🟢 Positive &nbsp;&nbsp; 🟡 Neutral &nbsp;&nbsp; 🔴 Negative")
 
             for article in articles:
                 sentiment = article["sentiment"]
