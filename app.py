@@ -28,6 +28,12 @@ st.markdown("""
 input:focus {
     border-color: #62fc03 !important;
     box-shadow: 0 0 0 2px #62fc03 !important;
+    outline: none !important;
+}
+
+[data-baseweb="input"]:focus-within {
+    border-color: #62fc03 !important;
+    box-shadow: 0 0 0 2px #62fc03 !important;
 }
 </style>
 """, unsafe_allow_html=True)
