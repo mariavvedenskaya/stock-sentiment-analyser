@@ -17,15 +17,18 @@ st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 st.markdown("""
 <style>
 .stApp {
-    background-image: url("https://www.religareonline.com/blog/wp-content/uploads/2023/05/online-trading.jpg");
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://www.religareonline.com/blog/wp-content/uploads/2023/05/online-trading.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-color: rgba(0,0,0,0.6);
 }
 </style>
 """, unsafe_allow_html=True)
-st.title("⭐️ Stock Sentiment Analyser")
+}
+</style>
+""", unsafe_allow_html=True)
+st.title("Stock Sentiment Analyser")
 st.caption("Powered by FinBERT — an AI model trained on financial text")
 
 
