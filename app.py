@@ -13,8 +13,7 @@ def fetch_news(ticker, api_key):
     url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=publishedAt&pageSize=20&apiKey={api_key}"
     response = requests.get(url)
     articles = response.json().get("articles", [])
-    return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10]} for a in articles if a["title"]]
-
+    return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10], "url": a["url"]} for a in articles if a["title"]]
 # Main app
 st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 st.title("⭐️ Stock Sentiment Analyser")
@@ -60,8 +59,19 @@ if st.button("Analyse Sentiment") and ticker:
                 return "background-color: #fff3cd; color: #856404"
 
             st.subheader(f"Latest headlines for '{ticker}'")
-            styled = df[["date", "source", "headline", "sentiment", "confidence"]].style.map(colour_sentiment, subset=["sentiment"])
-            st.dataframe(styled, use_container_width=True)
 
-            st.bar_chart(counts)
+for article in articles:
+    sentiment = article["sentiment"]
+    if sentiment == "positive":
+        colour = "🟢"
+    elif sentiment == "negative":
+        colour = "🔴"
+    else:
+        colour = "🟡"
+    
+    st.markdown(f"{colour} **[{article['headline']}]({article['url']})** — *{article['source']}* · {article['date']}")
+    st.caption(f"Sentiment: {article['sentiment']} ({article['confidence']}% confidence)")
+    st.divider()
+
+st.bar_chart(counts)
         
