@@ -16,8 +16,8 @@ def fetch_news(ticker, api_key):
     return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10]} for a in articles if a["title"]]
 
 # Main app
-st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="📈")
-st.title("📈 Stock Sentiment Analyser")
+st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
+st.title("⭐️ Stock Sentiment Analyser")
 st.caption("Powered by FinBERT — an AI model trained on financial text")
 
 api_key = st.text_input("Enter your NewsAPI key", type="password")
