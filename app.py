@@ -10,8 +10,8 @@ def load_model():
     return pipeline("sentiment-analysis", model="ProsusAI/finbert")
 
 def fetch_news(ticker, api_key):
-one_month_ago = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
-url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=relevancy&pageSize=20&from={one_month_ago}&excludeDomains=spinalcolumnradiology.com,pinkvilla.com,tmz.com&apiKey={api_key}"
+    one_month_ago = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
+    url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=relevancy&pageSize=20&from={one_month_ago}&excludeDomains=spinalcolumnradiology.com,pinkvilla.com,tmz.com&apiKey={api_key}"
     response = requests.get(url)
     articles = response.json().get("articles", [])
     return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10], "url": a["url"]} for a in articles if a["title"]]
