@@ -77,8 +77,8 @@ if st.button("Analyse Sentiment") and ticker:
             st.subheader(f"Latest headlines for '{ticker}':")
             dates = [a["date"] for a in articles]
             min_date = datetime.strptime(min(dates), "%Y-%m-%d").strftime("%d/%m/%Y")
-max_date = datetime.strptime(max(dates), "%Y-%m-%d").strftime("%d/%m/%Y")
-st.caption(f"Showing articles from {min_date} to {max_date}")
+            max_date = datetime.strptime(max(dates), "%Y-%m-%d").strftime("%d/%m/%Y")
+            st.caption(f"Showing articles from {min_date} to {max_date}")
             st.markdown("🤩 Positive  \n😶 Neutral  \n🫪 Negative")
 
             for article in articles:
@@ -90,8 +90,8 @@ st.caption(f"Showing articles from {min_date} to {max_date}")
                 else:
                     colour = "😶"
 
-                date_uk = datetime.strptime(article['date'], "%Y-%m-%d").strftime("%d/%m/%Y")
-st.markdown(f"{colour} **[{article['headline']}]({article['url']})** — *{article['source']}* · {date_uk}")
+                date_uk = datetime.strptime(article["date"], "%Y-%m-%d").strftime("%d/%m/%Y")
+                st.markdown(f"{colour} **[{article['headline']}]({article['url']})** — *{article['source']}* · {date_uk}")
                 st.caption(f"Sentiment: {article['sentiment']} ({article['confidence']}% confidence)")
                 st.divider()
 
