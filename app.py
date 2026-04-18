@@ -14,23 +14,25 @@ def fetch_news(ticker, api_key):
     return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10], "url": a["url"]} for a in articles if a["title"]]
 
 st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
+
 st.markdown("""
 <style>
 .stApp {
-    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url("https://www.religareonline.com/blog/wp-content/uploads/2023/05/online-trading.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
-</style>
-""", unsafe_allow_html=True)
+input:focus {
+    border-color: #FFD700 !important;
+    box-shadow: 0 0 0 2px #FFD700 !important;
 }
 </style>
 """, unsafe_allow_html=True)
-st.title("Stock Sentiment Analyser")
-st.caption("Powered by FinBERT — an AI model trained on financial text")
 
+st.title("⭐️ Stock Sentiment Analyser")
+st.caption("Powered by FinBERT — an AI model trained on financial text")
 
 api_key = st.secrets["NEWSAPI_KEY"]
 ticker = st.text_input("Enter a company name or ticker (e.g. Apple, Tesla, NVIDIA)")
