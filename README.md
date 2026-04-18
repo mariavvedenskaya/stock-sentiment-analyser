@@ -11,15 +11,15 @@ An AI-powered web app that analyses the sentiment of live financial news headlin
 
 ## Why I built this
 
-I built this project to develop practical AI and Python skills relevant to finance and fintech roles. It demonstrates how natural language processing can be applied to real financial data — a technique used by quantitative analysts and fintech companies to inform trading decisions.
+I built this project to develop practical AI and Python skills relevant to finance and fintech roles. It demonstrates how natural language processing can be applied to real financial data; a technique used by quantitative analysts and fintech companies to inform trading decisions.
 
 ## Tech stack
 
 - Python
-- [FinBERT](https://huggingface.co/ProsusAI/finbert) — NLP model trained on financial text
-- Streamlit — web app framework
-- NewsAPI — live financial news data
-- Pandas — data processing
+- [FinBERT](https://huggingface.co/ProsusAI/finbert) - NLP model trained on financial text
+- Streamlit - web app framework
+- NewsAPI - live financial news data
+- Pandas - data processing
 
 ## How to run locally
 
