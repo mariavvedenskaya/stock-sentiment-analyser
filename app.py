@@ -9,10 +9,10 @@ def load_model():
     return pipeline("sentiment-analysis", model="ProsusAI/finbert")
 
 def fetch_news(ticker, api_key):
-    url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=publishedAt&pageSize=20&apiKey={api_key}"
+    url = f"https://newsapi.org/v2/everything?q={ticker}&language=en&sortBy=relevancy&pageSize=20&excludeDomains=spinalcolumnradiology.com,pinkvilla.com,tmz.com&apiKey={api_key}"
     response = requests.get(url)
     articles = response.json().get("articles", [])
-    return [{"headline": a["title"], "source": a["source"]["name"], "date": a["publishedAt"][:10], "url": a["url"]} for a in articles if a["title"]]
+    return [{"headline": a["title"], "source": a["source"]["name"], "date": a["relevancy"][:10], "url": a["url"]} for a in articles if a["title"]]
 
 st.set_page_config(page_title="Stock Sentiment Analyser", page_icon="⭐️")
 
@@ -72,7 +72,10 @@ if st.button("Analyse Sentiment") and ticker:
             col3.metric("Neutral", neu)
             col4.metric("Negative", neg)
 
-            st.subheader(f"Latest headlines for '{ticker}'")
+            st.subheader(f"Latest headlines for '{ticker}':")
+            if articles:
+    dates = [a["date"] for a in articles]
+    st.caption(f"Showing articles from {min(dates)} to {max(dates)}")
             st.markdown("🤩 Positive  \n😶 Neutral  \n🫪 Negative")
 
             for article in articles:
