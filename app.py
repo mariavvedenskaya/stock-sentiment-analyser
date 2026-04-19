@@ -33,8 +33,8 @@ input:focus {
     outline: none !important;
 }
 [data-baseweb="input"]:focus-within {
-    border-color: #9af540 !important;
-    box-shadow: 0 0 0 2px #9af540 !important;
+    border-color: #262731 !important;
+    box-shadow: none !important;
 }
 * {
     color: white !important;
