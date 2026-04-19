@@ -53,6 +53,11 @@ button {
 button p {
     color: white !important;
 }
+
+input {
+    background-color: #262731 !important;
+    color: white !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
