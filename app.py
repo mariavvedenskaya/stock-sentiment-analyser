@@ -45,6 +45,9 @@ input:focus {
 p, h1, h2, h3, label, span {
     color: white !important;
 }
+button p {
+    color: black !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
