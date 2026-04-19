@@ -75,11 +75,12 @@ label p {
 }
 }
 
+st.caption("Powered by FinBERT")
+
 </style>
 """, unsafe_allow_html=True)
 
 st.title("Stock Sentiment Analyser")
-st.caption("Powered by FinBERT")
 
 api_key = st.secrets["NEWSAPI_KEY"]
 ticker = st.text_input("Enter any company name or ticker (e.g. Apple)")
