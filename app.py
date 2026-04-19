@@ -68,6 +68,11 @@ input:focus, input:active {
     box-shadow: 0 0 0 2px #9af540 !important;
     outline: none !important;
 }
+
+label {
+    font-size: 20px !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
