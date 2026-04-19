@@ -69,8 +69,10 @@ input:focus, input:active {
     outline: none !important;
 }
 
-label {
+label p {
     font-size: 20px !important;
+    font-weight: 400 !important;
+}
 }
 
 </style>
