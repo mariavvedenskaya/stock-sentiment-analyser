@@ -48,7 +48,7 @@ p, h1, h2, h3, label, span {
 button {
     background-color: black !important;
     color: white !important;
-    border: 1px solid white !important;
+    border: 1px solid black !important;
 }
 button p {
     color: white !important;
