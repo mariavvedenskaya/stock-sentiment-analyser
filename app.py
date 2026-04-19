@@ -46,9 +46,9 @@ p, h1, h2, h3, label, span {
     color: white !important;
 }
 button {
-    background-color: black !important;
+    background-color: #262731 !important;
     color: white !important;
-    border: 1px solid black !important;
+    border: 1px #262731 !important;
 }
 button p {
     color: white !important;
@@ -57,7 +57,7 @@ button p {
 input {
     background-color: #262731 !important;
     color: white !important;
-    border: 1px solid #262731 !important;
+    border: 1px #262731 !important;
 }
 </style>
 """, unsafe_allow_html=True)
