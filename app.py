@@ -74,9 +74,6 @@ label p {
     font-weight: 400 !important;
 }
 }
-
-st.caption("Powered by FinBERT")
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -142,3 +139,4 @@ if st.button("Analyse Sentiment") and ticker:
                 y=alt.Y("count", title="Count")
             )
             st.altair_chart(chart, use_container_width=True)
+            st.caption("Powered by FinBERT")
