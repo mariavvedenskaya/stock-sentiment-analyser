@@ -32,9 +32,11 @@ input:focus {
     box-shadow: 0 0 0 2px #9af540 !important;
     outline: none !important;
 }
-[data-baseweb="input"]:focus-within {
+[data-baseweb="input"] {
     border-color: #262731 !important;
     box-shadow: none !important;
+    border-width: 1px !important;
+    border-style: solid !important;
 }
 * {
     color: white !important;
