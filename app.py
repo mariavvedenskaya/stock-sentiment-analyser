@@ -114,16 +114,16 @@ if st.button("Analyse Sentiment") and ticker:
             min_date = datetime.strptime(min(dates), "%Y-%m-%d").strftime("%d/%m/%Y")
             max_date = datetime.strptime(max(dates), "%Y-%m-%d").strftime("%d/%m/%Y")
             st.caption(f"Showing articles from {min_date} to {max_date} (last 30 days)")
-            st.markdown("🤩 Positive  \n😶 Neutral  \n🫪 Negative")
+            st.markdown("🟢 Positive  \n🟡 Neutral  \n🔴 Negative")
 
             for article in articles:
                 sentiment = article["sentiment"]
                 if sentiment == "positive":
-                    colour = "🤩"
+                    colour = "🟢"
                 elif sentiment == "negative":
-                    colour = "🫪"
+                    colour = "🔴"
                 else:
-                    colour = "😶"
+                    colour = "🟡"
 
                 date_uk = datetime.strptime(article["date"], "%Y-%m-%d").strftime("%d/%m/%Y")
                 st.markdown(f"{colour} **[{article['headline']}]({article['url']})** – *{article['source']}* · {date_uk}")
