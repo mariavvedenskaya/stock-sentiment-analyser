@@ -46,7 +46,7 @@ button p {
 [data-baseweb="base-input"] input,
 div[data-baseweb="base-input"] {
     background-color: #262731 !important;
-    border-color: #262731 !important;
+    border-color: white !important;
     box-shadow: none !important;
     outline: none !important;
 }
