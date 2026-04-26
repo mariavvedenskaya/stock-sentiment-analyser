@@ -45,7 +45,7 @@ input {
     background-color: #262731 !important;
     color: white !important;
     border-color: white !important;
-    outline: none !important;
+    outline: white !important;
     box-shadow: none !important;
 }
 input:focus, input:active {
