@@ -45,17 +45,17 @@ button p {
     background-color: #262731 !important;
     border: 1px solid white !important;
     border-radius: 4px !important;
+    overflow: hidden !important;
 }
 [data-baseweb="base-input"]:focus-within {
-    border-color: #9af540 !important;
+    border: 1px solid #9af540 !important;
     box-shadow: 0 0 0 2px #9af540 !important;
+    outline: none !important;
 }
-input {
-    background-color: transparent !important;
-    color: white !important;
-    border: none !important;
+input:focus {
     outline: none !important;
     box-shadow: none !important;
+    border: none !important;
 }
 label p {
     font-size: 20px !important;
