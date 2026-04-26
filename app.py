@@ -55,18 +55,14 @@ input:focus, input:active {
     outline: none !important;
     box-shadow: 0 0 0 2px #9af540 !important;
 }
-[data-baseweb="input"] {
-    border-color: #262731 !important;
-    box-shadow: none !important;
-    border-width: 1px !important;
-    border-style: solid !important;
+[data-baseweb="base-input"] {
+    border: 1px solid white !important;
+    background-color: #262731 !important;
 }
-[data-baseweb="input"]:focus-within,
-[data-baseweb="input"]:focus,
-[data-baseweb="input"]:active {
+
+[data-baseweb="base-input"]:focus-within {
     border-color: #9af540 !important;
     box-shadow: 0 0 0 2px #9af540 !important;
-    outline: none !important;
 }
 label p {
     font-size: 20px !important;
