@@ -44,8 +44,8 @@ button p {
 input {
     background-color: #262731 !important;
     color: white !important;
-    border-color: white !important;
-    outline: white !important;
+    border: 1px solid white !important;
+    outline: none !important;
     box-shadow: none !important;
 }
 input:focus, input:active {
