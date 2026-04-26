@@ -57,12 +57,17 @@ input:focus, input:active {
 }
 [data-baseweb="base-input"] {
     border: 1px solid white !important;
-    background-color: #262731 !important;
+    border-radius: 4px !important;
 }
 
 [data-baseweb="base-input"]:focus-within {
     border-color: #9af540 !important;
     box-shadow: 0 0 0 2px #9af540 !important;
+}
+
+input {
+    background-color: transparent !important;
+    color: white !important;
 }
 label p {
     font-size: 20px !important;
