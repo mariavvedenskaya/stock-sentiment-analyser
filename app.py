@@ -57,6 +57,10 @@ input:focus {
     box-shadow: none !important;
     border: none !important;
 }
+
+*:focus {
+    outline: none !important;
+}
 label p {
     font-size: 20px !important;
     font-weight: 400 !important;
