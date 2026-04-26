@@ -44,7 +44,7 @@ button p {
 input {
     background-color: #262731 !important;
     color: white !important;
-    border-color: #262731 !important;
+    border-color: white !important;
     outline: none !important;
     box-shadow: none !important;
 }
